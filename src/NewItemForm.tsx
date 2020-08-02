@@ -14,9 +14,9 @@ export const NewItemForm = ({onAdd}: NewItemsFormProps) => {
   return (
     <NewItemFormContainer>
       <NewItemInput 
-      ref={inputRef}
-      value={text}
-      onChange={(e) => setText(e.target.value)} 
+        ref={inputRef}
+        value={text}
+        onChange={(e) => setText(e.target.value)} 
       />
       <NewItemButton onClick={() => onAdd(text)}>
         Create
