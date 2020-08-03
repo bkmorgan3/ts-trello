@@ -12,6 +12,7 @@ interface ColumnProps {
   text: string 
   index: number
   id: string
+  isPreview?: boolean
 }
 
 
@@ -19,20 +20,23 @@ interface ColumnProps {
 export const Column = ({
   text,
   index,
-  id
+  id,
+  isPreview
 }: ColumnProps) => {
 
   const [,drop] = useDrop({
     accept: "COLUMN",
     hover(item: DragItem) {
-      const dragIndex = item.index 
-      const hoverIndex = index 
-
-      if (dragIndex === hoverIndex) {
-        return
+      if (item.type === "COLUMN") {
+        const dragIndex = item.index 
+        const hoverIndex = index 
+        
+        if (dragIndex === hoverIndex) {
+          return
+        }
+        dispatch({type: "MOVE_LIST", payload: {dragIndex, hoverIndex}})
+        item.index = hoverIndex
       }
-      dispatch({type: "MOVE_LIST", payload: {dragIndex, hoverIndex}})
-      item.index = hoverIndex
     }
   })
   const {state, dispatch} = useAppState()
@@ -43,7 +47,10 @@ export const Column = ({
   drag(drop(ref))
 
   return (
-    <ColumnContainer ref={ref} isHidden={isHidden(state.draggedItem, "COLUMN", id)}>
+    <ColumnContainer 
+      ref={ref} 
+      isHidden={isHidden(isPreview, state.draggedItem, "COLUMN", id)}
+    >
       <ColumnTitle>{text}</ColumnTitle>
       {state.lists[index].tasks.map((task,i) => (
         <Card text={task.text} key={task.id} index={i} />

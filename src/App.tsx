@@ -4,6 +4,7 @@ import {AppContainer} from './styles';
 import {useAppState} from './AppStateContext';
 import {AddNewItem} from './AddNewItem';
 import {DragItem} from  "./DragItem";
+import CustomDragLayer from './CustomDragLayer'
 
 interface Task {
   id:string 
@@ -27,11 +28,15 @@ const App = () => {
 
   return (
     <AppContainer>
+      <CustomDragLayer />
       {state.lists.map ((list, i) => (
         <Column text={list.text} key={list.id} index={i} id={list.id} />
       ))}
   
-      <AddNewItem toggleButtonText="+Add another list" onAdd={text => dispatch({type: 'ADD_LIST', payload: text})} />
+      <AddNewItem 
+        toggleButtonText="+Add another list" 
+        onAdd={text => dispatch({type: 'ADD_LIST', payload: text})} 
+      />
     </AppContainer>
   );
 }
