@@ -16,7 +16,6 @@ interface ColumnProps {
 }
 
 
-
 export const Column = ({
   text,
   index,
@@ -48,6 +47,7 @@ export const Column = ({
 
   return (
     <ColumnContainer 
+    isPreview={isPreview}
       ref={ref} 
       isHidden={isHidden(isPreview, state.draggedItem, "COLUMN", id)}
     >
