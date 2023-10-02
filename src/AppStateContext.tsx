@@ -1,9 +1,9 @@
-import React, {createContext, useReducer, useContext} from 'react';
-import {AppState} from './App'
-import {v4 as uuid} from 'uuid';
+import React, { createContext, useReducer, useContext } from 'react';
+import { AppState } from './App'
+import { v4 as uuid } from 'uuid';
 import { findItemIndexById } from './findItemByIndex';
 import { DragItem } from './DragItem';
-import {moveItem} from './moveItem';
+import { moveItem } from './moveItem';
 
 type Action = 
 | {
@@ -42,9 +42,6 @@ interface AppStateContextProps {
 }
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps)
-
-
-
 
 const appStateReducer = (state: AppState, action: Action): AppState => {
   switch(action.type) {
@@ -95,7 +92,6 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
     }
   }
   
-  
   const appData: AppState = {
     
     lists: [
@@ -107,17 +103,16 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
       {
         id: "1",
         text: 'Is Progress',
-        tasks: [{id: 'c2', text: "Learn TypeScript"}]
+        tasks: [{id: 'c2', text: "Develop new features"}]
       },
       {
         id: "2",
         text: "Done",
-        tasks: [{id: "c3", text: "Begin to use static typing"}]
+        tasks: [{id: "c3", text: "Complete tasks"}]
       }
     ],
     draggedItem: undefined,
   }
-
 
 export const AppStateProvider = ({children}: React.PropsWithChildren<{}>) => {
   const [state, dispatch] = useReducer(appStateReducer, appData)
@@ -128,7 +123,6 @@ export const AppStateProvider = ({children}: React.PropsWithChildren<{}>) => {
   </AppStateContext.Provider>
   )
 }
-
 
 export const useAppState = () => {
   return useContext(AppStateContext)

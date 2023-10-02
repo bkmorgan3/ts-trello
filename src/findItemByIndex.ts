@@ -1,7 +1,3 @@
-
-
-
-
 interface Item {
   id: string
 }

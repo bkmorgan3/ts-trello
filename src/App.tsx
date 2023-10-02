@@ -1,9 +1,9 @@
 import React from 'react';
-import {Column} from './Column';
-import {AppContainer} from './styles';
-import {useAppState} from './AppStateContext';
-import {AddNewItem} from './AddNewItem';
-import {DragItem} from  "./DragItem";
+import { Column } from './Column';
+import { AppContainer } from './styles';
+import { useAppState } from './AppStateContext';
+import { AddNewItem } from './AddNewItem';
+import { DragItem } from  "./DragItem";
 import CustomDragLayer from './CustomDragLayer'
 
 interface Task {
