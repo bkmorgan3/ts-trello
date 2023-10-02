@@ -1,8 +1,8 @@
-import React from 'react'
-import { XYCoord, useDragLayer} from 'react-dnd';
-import {Column} from './Column';
-import {Card} from './Card';
-import {CustomDragLayerContainer} from './styles';
+import React from 'react';
+import { XYCoord, useDragLayer } from 'react-dnd';
+import { Column } from './Column';
+import { Card } from './Card';
+import { CustomDragLayerContainer } from './styles';
 
  const CustomDragLayer: React.FC = () => {
   const { isDragging, item, currentOffset } = useDragLayer(monitor => ({

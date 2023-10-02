@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { useDrop } from 'react-dnd';
 import { DragItem } from './DragItem';
-import { useItemDrag } from './useItemDrag'
+import { useItemDrag } from './useItemDrag';
 import { CardContainer } from './styles';
-import { useAppState } from './AppStateContext'
-import { isHidden } from './utils/isHidden'
+import { useAppState } from './AppStateContext';
+import { isHidden } from './utils/isHidden';
 
 
 interface CardProps {

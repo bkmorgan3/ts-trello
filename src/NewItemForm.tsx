@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useFocus } from './utils/useFocus';
 import { NewItemFormContainer, NewItemButton, NewItemInput } from './styles';
 
